@@ -68,3 +68,35 @@ Now, continue adding the [module.xml](https://github.com/tadeobarranco/magento2-
 ```
 
 That content is the simplest content you can add to the `etc/module.xml` file. After let know that it is a xml file, you should start defining the type of configuration for this file (all your modules will have the same config definition). The important tag in this file is the `module` which has a `name` parameter and its value is the same string like the `componentName` in the registration.php file.
+
+Finally you could add a [composer.json](https://github.com/tadeobarranco/magento2-easy-module/commit/c1984c6) file, the on is used to install the module using composer. The content of this file would looks like:
+
+```composer
+{
+  "name": "barranco/magento2-easymodule",
+  "description": "A module to illustrate how to bootstrap a Magento 2 module step by step",
+  "require":{
+    "php": "~7.1.3||~7.2.0"
+  },
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "license": [
+    "MIT"
+  ],
+  "authors": [
+    {
+      "name": "Tadeo Barranco",
+      "email": "tbarrancoa@gmail.com",
+      "homepage": "http://www.tadeobarranco.com/"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Barranco\\EasyModule\\": ""
+    }
+  }
+}
+```
