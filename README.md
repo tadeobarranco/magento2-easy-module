@@ -56,4 +56,15 @@ The **type** parameter use a constant defined in the **ComponentRegistrar** clas
 
 In my case I set **Barranco_EasyModule** as the **componentName** defined by the name of the company which provides the module and the name of the module joined by an underscore.
 
-AS the last parameter to register a module you set **__DIR__** as the value which means the **current script's directory**
+AS the last parameter to register a module you set **\__DIR\__** as the value which means the **current script's directory**.
+
+Now, continue adding the [module.xml](https://github.com/tadeobarranco/magento2-easy-module/commit/ac2a349) file under the etc folder in your module. This file content looks like:
+
+```xml
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Barranco_EasyModule" />
+</config>
+```
+
+That content is the simplest content you can add to the `etc/module.xml` file. After let know that it is a xml file, you should start defining the type of configuration for this file (all your modules will have the same config definition). The important tag in this file is the `module` which has a `name` parameter and its value is the same string like the `componentName` in the registration.php file.
