@@ -100,3 +100,19 @@ Finally you could add a [composer.json](https://github.com/tadeobarranco/magento
   }
 }
 ```
+
+> In the **module.xml** file you can define sequence tags with the modules names that your module will modify. For example if you will change or modify something from the Catalog and Customer modules your file will look like this:
+
+```xml
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Barranco_EasyModule">
+        <sequence>
+            <module name="Magento_Catalog" />
+            <module name="Magento_Customer" />
+        </sequence>
+    </module>
+</config>
+```
+
+> Each Magento 2 modules interact with other modules using service contracts and dependecy injection determining what classes to use. Remember that Magento 2 is PSR-4 compliant that means the namespace path match with the file path. 
